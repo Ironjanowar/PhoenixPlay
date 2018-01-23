@@ -1,0 +1,9 @@
+* How to start
+
+First of all you may start de postgresql stuff, in my case:
+
+#+BEGIN_SRC bash
+$ sudo systemctl start postgresql
+#+END_SRC
+
+Now! Just run ~mix phx.server~ and go with your browser to http://localhost:4000
