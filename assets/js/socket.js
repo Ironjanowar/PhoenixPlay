@@ -59,8 +59,23 @@ let chatInput         = document.querySelector("#chat-input")
 let messagesContainer = document.querySelector("#messages")
 let user              = document.querySelector("#user")
 
+let onClickLogin = function() {
+    document.querySelector("#chat").style.display = "unset"
+    document.querySelector("#login").style.display = "none"
+}
+
+let loginButton = document.querySelector("#loginButton")
+loginButton.onclick = onClickLogin
+
+let loginInput = document.querySelector("#user")
+loginInput.addEventListener("keypress", event => {
+    if(event.keyCode === 13 && loginInput.value !== "") {
+        loginButton.click()
+    }
+})
+
 chatInput.addEventListener("keypress", event => {
-    if(event.keyCode === 13){
+    if(event.keyCode === 13 && chatInput.value !== "") {
         channel.push("new_msg", {
             sender: user.value === "" ? "Anonymous" : user.value,
             message: chatInput.value
