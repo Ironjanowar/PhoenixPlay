@@ -14,6 +14,7 @@ defmodule Hello.Application do
       supervisor(HelloWeb.Endpoint, []),
       # Start your own worker by calling: Hello.Worker.start_link(arg1, arg2, arg3)
       # worker(Hello.Worker, [arg1, arg2, arg3]),
+      worker(BsvcParser, [], function: :start)
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
